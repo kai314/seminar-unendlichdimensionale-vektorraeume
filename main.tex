@@ -1,0 +1,255 @@
+% !TeX spellcheck = de_DE
+\documentclass[AERbeamer%              style
+%,optEnglish%            language
+,handout%               deactivate animation
+%              ,optBiber%               bibliography tool
+%              ,optBibstyleAlphabetic%
+,optBeamerClassicFormat% 4:3 format
+%,optBeamerWideFormat%   16:9 format
+,optLeftEquations   % left align equations
+]{AERlatex}
+\usepackage{blkarray}%
+\usepackage{enumitem}%
+%\setbeameroption{show notes}% Show all notes
+%
+% Set paths
+\graphicspath{{figures/}}%
+%\addbibresource{source/literature.bib}%
+%
+% set meta data
+\title{Lineare Abbildungen}%
+\subtitle{Ferienseminar unendlichdimensionale Vektorräume}% (optional)
+\author{Kai Eberl}% (optional)
+\date{\AERutilsDate{5}{9}{2022}}% (optional)
+%\institute{Institute}% (optional)
+%
+% Setup of header and footer
+\AERbeamerSetupHeader{\AERlayoutHeaderCDTUMLogoOnly}%
+%\AERbeamerSetupHeader{\AERlayoutHeaderCDTUM}%
+%\AERbeamerSetupHeader{\AERlayoutHeaderCDDepartment}%
+%\AERbeamerSetupHeader{\AERlayoutHeaderCDChair}%
+\AERbeamerSetupFooterCD%
+%\AERbeamerSetupFooterSlideNumberOnly%
+%
+\begin{document}%
+%
+% Start with titlepage
+    \AERbeamerTitlePageDefault%
+%
+    \begin{frame}{Was ist eine lineare Abbildung?}%
+        \begin{Definition}
+            Eine Abbildung $~f: V \rightarrow W$ zwischen $\mathbb{K}$-Vektorräumen $V$ und $W$ heißt \emph{lineare Abbildung} (Homomorphismus), wenn $\forall v, ~ w \in V, ~ \lambda \in \mathbb{K}$ gilt: \\ \pause
+            \begin{enumerate}
+                [label=$(\roman*)$, leftmargin=2em]
+                \item $f(v+w) = f(v) + f(w)$ \hspace{2em} Additivität \pause
+                \item $f(\lambda v) = \lambda f(v)$ \hspace{6em} Homogenität
+            \end{enumerate}
+        \end{Definition}
+    \end{frame}%
+%
+    \begin{frame}{Definition durch eine Matrix}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        Sei $f: \mathbb{K}^n \rightarrow \mathbb{K}^m$ eine lineare Abbildung und $B$ eine Basis von $\mathbb{K}^n$. \\
+        $v = \sum_{i=1}^n \lambda_i b_i$ \\ \pause
+        Wegen Additivität und Homogenität: \\
+        $f(v) = f(\lambda_1 b_1 + \dots + \lambda_n b_n)$ \\ \pause
+        $\Rightarrow ~ f(v)$ ist eindeutig durch Bilder der Basisvektoren bestimmt. \\
+        \begin{block}{Prinzip der linearen Fortsetzung}
+            Sei $A:\left\{\begin{array}{l}
+                              B \rightarrow W \\ b \mapsto A(b)
+            \end{array} \right.$ eine lineare Abbildung.                                         \\
+            Dann gibt es genau eine lineare Abbildung $~ f: ~ V \rightarrow W$ mit $~ f|_B$ = A. \\
+            $f$ ist die lineare Fortsetzung von $A$ auf $V$.
+        \end{block}
+    \end{frame}
+%
+    \begin{frame}{Beweis}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        Sei $v=\sum_{i=1}^n \lambda_i b_i \in V, \quad f(v)\coloneqq\sum \lambda_i A\left(b_i\right) \in W$. \\
+        Linearität: sei $v=\sum_{i=1}^n \lambda_i b_i, \quad w=\sum_{i=1}^n \mu_i c_i, \quad \lambda_i, \mu_i \in \mathbb{K}$
+        \begin{equation*}
+            \begin{aligned}
+                f(v+w) &=f\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right)=A\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right) \\
+                &=A\left(\sum_{i=1}^n \lambda_i b_i\right)+A\left(\sum_{i=1}^n \mu_i c_i\right)=A(v)+A(w) \\
+                &=f(v)+f(w) \\
+                f\left(\lambda_v\right) &=f\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=A\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=\lambda A\left(\sum_{i=1}^n \lambda_i b_i\right)=\lambda A(v)=\lambda f(v)
+            \end{aligned}
+        \end{equation*}
+        $\Rightarrow ~ f ~$ ist linear
+    \end{frame}
+%
+    \begin{frame}{Stetigkeit in endlichdimensionalen Vektorräumen}
+    \end{frame}
+%
+    \begin{frame}{Stetigkeit}
+        \begin{Satz}
+            Für eine lineare Abbildung $L$ eines normierten Vektorraums $V$ in einen normierten Vektorraum $W$ sind folgende Eigenschaften äquivalent:
+            \begin{enumerate}
+                [label=$(\roman*)$, leftmargin=2em]
+                \item Die Abbildung $L$ ist gleichmäßig stetig auf $V$.
+                \item Die Abbildung $L$ ist stetig in $0_V$.
+                \item Die Menge $\{\|Lx\|_W: ~ x \in V, ~ \|x\|_V \leq 1\}$ ist beschränkt.
+            \end{enumerate}
+        \end{Satz}
+    \end{frame}
+%
+    \begin{frame}{Beweis}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        $(i) \Rightarrow (ii)$:\\ \pause
+        trivial \\ \pause
+        \vspace{1em}
+        Gleichmäßige Stetigkeit:
+        $\forall \varepsilon>0 \quad \exists \delta>0: \left\|f(x)-f\left(x^{\prime}\right)\right\|<\varepsilon \quad \forall x, x^{\prime} \in D, ~ \left\|x-x^{\prime}\right\|<\delta$
+    \end{frame}
+%
+    \begin{frame}{Beweis}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        $(ii) \Rightarrow (iii)$: \\ \pause
+        sei $ ~\left\{\|L w\|_W: x \in V, ~ \|x \|_V \leq 1\right\} ~$ unbeschränkt \\ \pause
+        $\Rightarrow ~ \forall n \in \mathbb{N} \quad \exists x_n \in V: ~ \left\|x_n\right\| \leq 1, \quad \left\|L x_n\right\| \geq n$ \\ \pause
+        $y_n \coloneqq \frac{1}{n} x_n \quad \Rightarrow \quad \left\|y_n\right\|=\frac{1}{n}\left\|x_n\right\| \leq \frac{1}{n}, \quad \left\|L y_n\right\|=\frac{1}{n}\left\|L x_n\right\| \geq 1$ \\ \pause
+        $\lim _{n \rightarrow \infty} y_n=0_V$, $L 0_V=0_W$ für jede lineare Abbildung \\
+        gleichzeitig $\|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N}$ \\
+        $\Rightarrow ~ L$ in $0_V$ unstetig
+    \end{frame}
+%
+    \begin{frame}{Beweis}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        $(iii) \Rightarrow (i)$: \\
+        $M\coloneqq\sup \{\|L x\|: x \in V,~\|x\| \leq 1\}<\infty$ \\ \pause
+        dafür zu zeigen: $\|L x-L y\| \leq M\|x-y\| \quad \forall x, ~ y in V$ \\ \pause
+        $z\coloneqq\frac{x-y}{\|x-y\|} \qquad x \neq y \quad$ (für $x=y$ trivial) \\ \pause
+        $\Rightarrow ~\|z\|=1 \quad \Rightarrow ~\|L z\| \leq M$ \\ \pause
+        $\Rightarrow ~\left\|\frac{L(x-y)}{\|x-y\|}\right\| \leq M \quad \Rightarrow ~\|L(x-y)\| \leq M\|x-y\|$ \\ \pause
+        $\Rightarrow ~$ gleichmäßig stetig
+    \end{frame}
+%
+    \begin{frame}{In endlichdimensionalem Vektorraum}
+    \end{frame}
+%
+    \begin{frame}{Beispiel 1}
+        \setlength{\baselineskip}{1.3\baselineskip}
+        Gegeben ist eine stetige lineare Abbildung $\ell^2 \rightarrow \ell^1$. \\
+        Auf den Räumen \\
+        $\ell^1\coloneqq \{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. |x_n| \text { ist konvergent }\}$ \\
+        und \\
+        $\ell^2\coloneqq \{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. \left|x_n\right|^2 \text{ist konvergent} \}$ \\
+        sind durch \\
+        $\|x\|_1\coloneqq\sum_{n=1}^{\infty}\left|x_n\right| \quad \text { bzw. } \quad\|x\|_2\coloneqq\left(\sum_{n=1}^{\infty}\left|x_n\right|^2\right)^{\frac{1}{2}}$ \\
+        Normen erklärt. \\
+        Es sei $\quad L: \ell^2 \rightarrow \ell^1, \quad L\left(x_1, x_2, x_3, \ldots\right)\coloneqq\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \ldots\right)$.
+    \end{frame}
+%
+    \begin{frame}{Beispiel 1: Wohldefiniertheit}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        zu zeigen: $\quad \forall x \in \ell^2 \quad L x \in \ell^1$ \\ \pause
+        sei $a, b \in \ell^2, \quad a b \in \ell^1, \quad (a b)_n\coloneqq a_n b_n$ \\ \pause
+        Canchy-Schwarz: $\quad \|a b\|_1 \leq\|a\|_2~\|b\|_2$ \\ \pause
+        sei $x \in \ell^2$ beliebig, $\quad b=\left(b_n\right)_{n \in \mathbb{N}}, \quad b_n\coloneqq\frac{1}{n}$ \\ \pause
+        $\sum_{n=1}^{\infty} \frac{1}{n^2} \text { konvergent} \quad \Rightarrow ~\|b\|_2=\left(\sum_{n=1}^{\infty}\left|b_n\right|^2\right)^{\frac{1}{2}}<\infty \quad \Rightarrow ~ b \in \ell^2$ \\ \pause
+        $\|x b\|_1=\sum_{n=1}^{\infty}\left|x_n b_n\right|<\infty \quad \Rightarrow ~ x b \in \ell^1$ \\ \pause
+        $L x=\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \cdots\right)=x b$ \\ \pause
+        \vspace{0.5em}
+        $\Rightarrow ~ L:\left\{\begin{array}{l}
+                                    \ell^2 \rightarrow \ell^1 \\ x \mapsto L x\coloneqq b x
+        \end{array}\right.~$  definiert eine Abbildung.
+    \end{frame}
+%
+    \begin{frame}{Beispiel 1: Linearität}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        für $a, b \in \ell^2$ gilt: \\
+        $L(a+b)=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right)$ \\ \pause
+        $=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b$ \\ \pause
+        $L(\lambda a)=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C}$ \\ \pause
+        $\Rightarrow ~ L$  ist lineare Abbildung
+    \end{frame}
+%
+    \begin{frame}{Beispiel 1: Linearität}
+%        \setlength{\baselineskip}{1.6\baselineskip}
+        Darstellung als "$(\infty \times \infty)$-Matrix":
+        \begin{equation*}
+            L = \left(\begin{array}{llll}
+                          b_1 &     &     &        \\
+                          & b_2 &     &        \\
+                          &     & b_3 &        \\
+                          &     &     & \ddots
+            \end{array}\right) =
+            \left(\begin{array}{llll}
+                      1 &             &             &        \\
+                      & \frac{1}{2} &             &        \\
+                      &             & \frac{1}{3} &        \\
+                      &             &             & \ddots
+            \end{array}\right)
+        \end{equation*} \\
+        möglich wegen Wohldefiniertheit $\Leftrightarrow$ Reihe konvergiert
+    \end{frame}
+%
+    \begin{frame}{Beispiel 2}
+        Gegeben ist eine lineare Abbildung $\ell^{\infty} \rightarrow \ell^{\infty}$. \\
+        Es sei $\quad A: \ell^{\infty} \rightarrow \ell^{\infty}, \quad A\left(x_1, x_2, x_3, \ldots\right)\coloneqq\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \ldots\right)$.
+    \end{frame}
+%
+    \begin{frame}{Beispiel 2: Wohldefiniertheit}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        zu zeigen: $\forall x \in l^{\infty} \quad A x \in l^{\infty}$ \\
+        sei $x \in l^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N}$ \\
+        $\Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty}$ \\
+        $x \in l^{\infty} \Rightarrow\|A x\|_{\infty} \in l^{\infty}$ \\
+        $\Rightarrow ~ A:\left\{\begin{array}{l}
+                                    l^{\infty} \rightarrow l^{\infty} \\ x \mapsto A x
+        \end{array} \right.~$ definiert eine Abbildung.
+    \end{frame}
+%
+    \begin{frame}{Beispiel 2: Linearität}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        für $a, b \in \ell^2$ gilt: \\
+        $A(a+b)=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right)$ \\ \pause
+        $=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b$ \\ \pause
+        $A(\lambda a)=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C}$ \\ \pause
+        $\Rightarrow ~ A$  ist lineare Abbildung
+    \end{frame}
+%
+    \begin{frame}{Beispiel 2: Injektivität}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        zu zeigen: $A x=A y ~ \Rightarrow ~ x=y$ \\ \pause
+        $A x=A y ~ \Leftrightarrow ~ A(x-y)=0$ wegen Additivität, Homogenität \\ \pause
+        zu zeigen (vereinfacht): $A x=0 ~ \Rightarrow ~ x=0$ \\ \pause
+        sei $x \in l^{\infty}, A x=0$ \\ \pause
+        $\Rightarrow ~ \frac{x_n}{n}=0 \quad \forall n \in N \quad \Rightarrow ~ x_n=0 \quad \forall n \in N \quad \Rightarrow ~ x=0$ \\ \pause
+        $\Rightarrow ~ A$ ist injektiv
+    \end{frame}
+%
+    \begin{frame}{Beispiel 2: Surjektivität}
+        \setlength{\baselineskip}{1.6\baselineskip}
+        Gegenbeispiel: \\
+        $y\coloneqq(1,1,1, \ldots) \in \ell^{\infty}$ \\ \pause
+        angenommen, $~ \exists ~ x \in \ell^{\infty}: ~ A x=y$ \\ \pause
+        $\Rightarrow ~ \frac{x_n}{n}=y_n, x_n=n y_n=n \quad \forall n \in N$ \\ \pause
+        $\Rightarrow ~ x$ unbeschränkt, $\|x\|_{\infty}$ nicht definiert \\ \pause
+        $\Rightarrow ~ A$ ist nicht surjektiv
+    \end{frame}
+%
+    \begin{frame}{Stetigkeit}
+
+    \end{frame}
+%
+    \begin{frame}{Stetigkeit der Umkehrabbildung}
+
+    \end{frame}
+%
+%\AERbeamerSetFooterText{References}%
+%\begin{frame}[allowframebreaks]{References}%
+%    \printbibliography[heading=none]%
+%\end{frame}%
+%
+% End with titlepage
+%    \AERbeamerTitlePageDefault%
+%
+\end{document}%
+%
+%
