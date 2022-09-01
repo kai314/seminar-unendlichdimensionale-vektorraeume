@@ -52,20 +52,19 @@
 %
         Sei $f: \mathbb{K}^n \rightarrow \mathbb{K}^m$ eine lineare Abbildung und $B=(b_1, \dots , b_n)$ eine Basis von $\mathbb{K}^n$. \\
         $v = \sum_{i=1}^n \lambda_i b_i$ \\ \pause
-        Wegen Additivität und Homogenität: \\
-        $f(v) = f(\lambda_1 b_1 + \dots + \lambda_n b_n)$ \\ \pause
-        $\Rightarrow ~ f(v)$ ist eindeutig durch Bilder der Basisvektoren bestimmt.
+        $f(v) = f(\lambda_1 b_1 + \dots + \lambda_n b_n) = \lambda_1 ~ f(b_1) + \dots + \lambda_n ~ f(b_n)$ \\
+        \hspace{2em}wegen Additivität und Homogenität \\ \pause
+        $\Rightarrow ~ f(v)$ ist eindeutig durch die Bilder der Basisvektoren bestimmt.
     \end{frame}
 %
     \begin{frame}{Definition durch eine Matrix}
-        \setlength{\baselineskip}{1.6\baselineskip}
-%
         \begin{block}{Prinzip der linearen Fortsetzung}
+            \setlength{\baselineskip}{1.3\baselineskip}
             Seien $V$, $W$ Vektorräume in $\mathbb{K}$ und $B=(b_1, \dots, b_n)$ eine Basis von V. \\
             Sei nun $A:\left\{\begin{array}{l}
-                              B \rightarrow W \\ b \mapsto A(b)
-            \end{array} \right.$ eine lineare Abbildung.                                         \\
-            Dann gibt es genau eine lineare Abbildung $~ f: ~ V \rightarrow W$ mit $~ f|_B$ = A. \\
+                                  B \rightarrow W \\ b \mapsto A(b)
+            \end{array} \right.$ eine lineare Abbildung.                                           \\
+            Dann gibt es genau eine lineare Abbildung $~ f: ~ V \rightarrow W$ mit $~ f|_B = A$. \\
             $f$ ist die lineare Fortsetzung von $A$ auf $V$.
         \end{block}
     \end{frame}
@@ -73,17 +72,35 @@
     \begin{frame}{Beweis}
         \setlength{\baselineskip}{1.6\baselineskip}
 %
-        Sei $v=\sum_{i=1}^n \lambda_i b_i \in V, \quad f(v)\coloneqq\sum \lambda_i A\left(b_i\right) \in W$. \\
-        Linearität: sei $v=\sum_{i=1}^n \lambda_i b_i, \quad w=\sum_{i=1}^n \mu_i c_i, \quad \lambda_i, \mu_i \in \mathbb{K}$
+        $f(v)\coloneqq\lambda_1 A\left(b_1\right)+\cdots+\lambda_n A\left(b_n\right) \in W$, wobei
+        $~v=\lambda_1 b_1+\cdots+\lambda_n b_n \in V$ \\
+        \vspace{0.5em}
+        \textbf{Linearität:} \\
+        sei $v=\sum_{i=1}^n \lambda_i b_i, \quad w=\sum_{i=1}^n \mu_i c_i, \quad \lambda_i, \mu_i \in \mathbb{K}$ \pause
         \begin{equation*}
             \begin{aligned}
-                f(v+w) &=f\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right)=A\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right) \\
-                &=A\left(\sum_{i=1}^n \lambda_i b_i\right)+A\left(\sum_{i=1}^n \mu_i c_i\right)=A(v)+A(w) \\
-                &=f(v)+f(w) \\
-                f\left(\lambda v\right) &=f\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=A\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=\lambda A\left(\sum_{i=1}^n \lambda_i b_i\right)=\lambda A(v)=\lambda f(v)
+                f(v+w) &=f\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right)=A\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right) \\ \pause
+                &=A\left(\sum_{i=1}^n \lambda_i b_i\right)+A\left(\sum_{i=1}^n \mu_i c_i\right)=A(v)+A(w) = f(v)+f(w) \\ \pause \pause
+                f\left(\lambda v\right) &=f\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=A\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=\lambda A\left(\sum_{i=1}^n \lambda_i b_i\right)=\lambda A(v)=\lambda f(v) \pause
             \end{aligned}
         \end{equation*}
         $\Rightarrow ~ f ~$ ist linear
+    \end{frame}
+%
+    \begin{frame}{Beweis}
+        \setlength{\baselineskip}{1.6\baselineskip}
+%
+        \textbf{Eindeutigkeit:} \\
+        Für zwei lineare Fortsetzungen $f$, $g$ von $A$ gilt:
+        \begin{equation*}
+            \begin{aligned}
+                f(v) &=f\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) \\ \pause
+                &=\lambda_1 A\left(b_1\right)+\cdots+\lambda_n A\left(b_n\right) \\ \pause
+                &=g\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) \\ \pause
+                &=g(v)
+            \end{aligned} \\
+            \Rightarrow ~ f=g.
+        \end{equation*}
     \end{frame}
 %
 %    \begin{frame}{Stetigkeit in endlichdimensionalen Vektorräumen}
@@ -120,17 +137,17 @@
         sei $ ~\left\{\|L w\|_W: x \in V, ~ \|x \|_V \leq 1\right\} ~$ unbeschränkt \\ \pause
         $\Rightarrow ~ \forall n \in \mathbb{N} \quad \exists x_n \in V: ~ \left\|x_n\right\| \leq 1, \quad \left\|L x_n\right\| \geq n$ \\ \pause
         $y_n \coloneqq \frac{1}{n} x_n \quad \Rightarrow \quad \left\|y_n\right\|=\frac{1}{n}\left\|x_n\right\| \leq \frac{1}{n}, \quad \left\|L y_n\right\|=\frac{1}{n}\left\|L x_n\right\| \geq 1$ \\ \pause
-        $\lim _{n \rightarrow \infty} y_n=0_V$, ~ $L 0_V=0_W$ für jede lineare Abbildung \\
-        gleichzeitig $\|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N}$ \\
+        $\lim _{n \rightarrow \infty} y_n=0_V$, ~ $L 0_V=0_W$ für jede lineare Abbildung \\ \pause
+        gleichzeitig $\|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N}$ \\ \pause
         $\Rightarrow ~ L$ in $0_V$ unstetig
     \end{frame}
 %
     \begin{frame}{Beweis}
         \setlength{\baselineskip}{1.6\baselineskip}
 %
-        $(iii) \Rightarrow (i)$: \\
+        $(iii) \Rightarrow (i)$: \\ \pause
         $M\coloneqq\sup \{\|L x\|: x \in V,~\|x\| \leq 1\}<\infty$ \\ \pause
-        dafür zu zeigen: $\|L x-L y\| \leq M\|x-y\| \quad \forall x, ~ y \text{in} V$ \\ \pause
+        dafür zu zeigen: $\|L x-L y\| \leq M\|x-y\| \quad \forall x, ~ y \text{ in } V$ \\ \pause
         $z\coloneqq\frac{x-y}{\|x-y\|} \qquad x \neq y \quad$ (für $x=y$ trivial) \\ \pause
         $\Rightarrow ~\|z\|=1 \quad \Rightarrow ~\|L z\| \leq M$ \\ \pause
         $\Rightarrow ~\left\|\frac{L(x-y)}{\|x-y\|}\right\| \leq M \quad \Rightarrow ~\|L(x-y)\| \leq M\|x-y\|$ \\ \pause
@@ -142,12 +159,18 @@
 %
     \begin{frame}{Beispiel 1}
         \setlength{\baselineskip}{1.3\baselineskip}
-        Auf den Räumen \\
-        $\ell^1\coloneqq \{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. |x_n| \text { ist konvergent }\}$ \\
-        und \\
-        $\ell^2\coloneqq \{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. \left|x_n\right|^2 \text{ist konvergent} \}$ \\
-        sind durch \\
-        $\|x\|_1\coloneqq\sum_{n=1}^{\infty}\left|x_n\right| \quad \text { bzw. } \quad\|x\|_2\coloneqq\left(\sum_{n=1}^{\infty}\left|x_n\right|^2\right)^{\frac{1}{2}}$ \\
+        Auf den Räumen
+        \begin{equation*}
+            \ell^1\coloneqq \left\{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. |x_n| \text { ist konvergent }\right\}
+        \end{equation*}
+        und
+        \begin{equation*}
+            \ell^2\coloneqq \left\{\left(x_n\right)_{n \in \mathbb{N}} ~ \left| ~ \sum_{n=1}^{\infty} \right. \left|x_n\right|^2 \text{ist konvergent} \right\}
+        \end{equation*}
+        sind durch
+        \begin{equation*}
+            \|x\|_1\coloneqq\sum_{n=1}^{\infty}\left|x_n\right| \quad \text { bzw. } \quad\|x\|_2\coloneqq\left(\sum_{n=1}^{\infty}\left|x_n\right|^2\right)^{\frac{1}{2}}
+        \end{equation*}
         Normen erklärt. \\
         Es sei $\quad L: \ell^2 \rightarrow \ell^1, \quad L\left(x_1, x_2, x_3, \ldots\right)\coloneqq\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \ldots\right)$.
     \end{frame}
@@ -169,10 +192,14 @@
 %
     \begin{frame}{Beispiel 1: Linearität}
         \setlength{\baselineskip}{1.6\baselineskip}
-        für $a, b \in \ell^2$ gilt: \\
-        $L(a+b)=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right)$ \\ \pause
-        $=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b$ \\ \pause
-        $L(\lambda a)=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a \quad \forall a \in \ell^{2}, ~\lambda \in \mathbb{C}$ \\ \pause
+        für $a, b \in \ell^2$ gilt:
+        \begin{equation*}
+            \begin{aligned}
+                L(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) \\ \pause
+                &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b \\ \pause
+                L(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a \quad \forall a \in \ell^{2}, ~\lambda \in \mathbb{C} \pause
+            \end{aligned}
+        \end{equation*}
         $\Rightarrow ~ L$  ist lineare Abbildung
     \end{frame}
 %
@@ -204,8 +231,8 @@
                       x_3 \\
                       \vdots
             \end{array}\right)
-        \end{equation*} \\
-        möglich wegen Wohldefiniertheit $\Leftrightarrow$ Reihe konvergiert
+        \end{equation*} \\ \pause
+        möglich wegen Wohldefiniertheit $~\Leftrightarrow~$ Reihe konvergiert
     \end{frame}
 %
     \begin{frame}{Beispiel 2}
@@ -215,10 +242,10 @@
 %
     \begin{frame}{Beispiel 2: Wohldefiniertheit}
         \setlength{\baselineskip}{1.6\baselineskip}
-        zu zeigen: $\forall x \in \ell^{\infty} \quad A x \in \ell^{\infty}$ \\
-        sei $x \in \ell^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N}$ \\
-        $\Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty}$ \\
-        $x \in \ell^{\infty} \Rightarrow\|A x\|_{\infty} \in \ell^{\infty}$ \\
+        zu zeigen: $\forall x \in \ell^{\infty} \quad A x \in \ell^{\infty}$ \\ \pause
+        sei $x \in \ell^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N}$ \\ \pause
+        $\Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty}$ \\ \pause
+        $x \in \ell^{\infty} \Rightarrow\|A x\|_{\infty} \in \ell^{\infty}$ \\ \pause
         \vspace{1em}
         $\Rightarrow ~ A:\left\{\begin{array}{l}
                                     \ell^{\infty} \rightarrow \ell^{\infty} \\ x \mapsto A x
@@ -227,11 +254,15 @@
 %
     \begin{frame}{Beispiel 2: Linearität}
         \setlength{\baselineskip}{1.6\baselineskip}
-        für $a, b \in \ell^{\infty}$ gilt: \\
-        $A(a+b)=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right)$ \\ \pause
-        $=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b$ \\ \pause
-        $A(\lambda a)=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C}$ \\ \pause
-        $\Rightarrow ~ A$  ist lineare Abbildung
+        für $a, b \in \ell^{\infty}$ gilt:
+        \begin{equation*}
+            \begin{aligned}
+                A(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) \\ \pause
+                &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b \\ \pause
+                A(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a \\ & \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C} \pause
+            \end{aligned}
+        \end{equation*}
+        $\Rightarrow ~ A$  ist lineare Abbildung.
     \end{frame}
 %
     \begin{frame}{Beispiel 2: Injektivität}
@@ -265,7 +296,7 @@
     \begin{frame}{Beispiel 2: Stetigkeit der Umkehrabbildung}
         \setlength{\baselineskip}{1.6\baselineskip}
         sei $\quad y^{(k)} \in \ell^{\infty}, \quad k \in \mathbb{N} \quad y_n^{(k)}\coloneqq \begin{cases}
-                                1, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
+                                                                                                  1, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
         \end{cases}$ \\ \pause
         \vspace{0.5em}
         $\Rightarrow\left\|y^{(k)}\right\|=1 \quad \forall k \in \mathbb{N}$ \\ \pause
@@ -296,7 +327,7 @@
 %
     \begin{frame}{Beispiel 3: Linearität}
         \setlength{\baselineskip}{1.6\baselineskip}
-        $\forall ~ \lambda \in \mathbb{R}, \quad p,~ q \in \mathbb{R}[X]$ gilt: \\
+        $\forall ~ \lambda \in \mathbb{R}, \quad p,~ q \in \mathbb{R}[X]$ gilt: \hspace{2em}
         $\frac{\mathrm{d}}{\mathrm{d} X}(\lambda p+q)=\lambda \frac{\mathrm{d}}{\mathrm{d} X} p+\frac{\mathrm{d}}{\mathrm{d} X} q$.
     \end{frame}
 %
@@ -316,19 +347,19 @@
         \begin{equation*}
             \left(\begin{array}{cccc}
                       a_{11} & a_{12} & a_{13} & \cdots \\
-                      a_{21} & a_{22} & a_{23} & \\
-                      a_{31} & a_{32} & a_{33} & \\
-                      \vdots & & & \ddots
+                      a_{21} & a_{22} & a_{23} &        \\
+                      a_{31} & a_{32} & a_{33} &        \\
+                      \vdots &        &        & \ddots
             \end{array}\right)\left(\begin{array}{c}
                                         x_1 \\
                                         x_2 \\
                                         x_3 \\
                                         \vdots
             \end{array}\right) \pause =\left(\begin{array}{c}
-                                         \sum_{n=1}^{\infty} a_{1 n} x_n \\
-                                         \sum_{n=1}^{\infty} a_{2 n} x_n \\
-                                         \sum_{n=1}^{\infty} a_{3 n} x_n \\
-                                         \vdots
+                                                 \sum_{n=1}^{\infty} a_{1 n} x_n \\
+                                                 \sum_{n=1}^{\infty} a_{2 n} x_n \\
+                                                 \sum_{n=1}^{\infty} a_{3 n} x_n \\
+                                                 \vdots
             \end{array}\right)
         \end{equation*}
     \end{frame}
