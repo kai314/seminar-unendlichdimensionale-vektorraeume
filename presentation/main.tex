@@ -1,7 +1,7 @@
 % !TeX spellcheck = de_DE
 \documentclass[AERbeamer%              style
 %,optEnglish%            language
-%,handout%               deactivate animation
+,handout%               deactivate animation
 %              ,optBiber%               bibliography tool
 %              ,optBibstyleAlphabetic%
 ,optBeamerClassicFormat% 4:3 format
@@ -88,7 +88,7 @@
     \end{frame}
 %
     \begin{frame}{Beweis}
-        \setlength{\baselineskip}{1.6\baselineskip}
+%        \setlength{\baselineskip}{1.6\baselineskip}
 %
         \textbf{Eindeutigkeit:} \\
         Für zwei lineare Fortsetzungen $f$, $g$ von $A$ gilt:
@@ -97,10 +97,10 @@
                 f(v) &=f\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) \\ \pause
                 &=\lambda_1 A\left(b_1\right)+\cdots+\lambda_n A\left(b_n\right) \\ \pause
                 &=g\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) \\ \pause
-                &=g(v)
-            \end{aligned} \\
-            \Rightarrow ~ f=g.
+                &=g(v) \pause
+            \end{aligned}
         \end{equation*}
+        $\Rightarrow ~ f=g$.
     \end{frame}
 %
 %    \begin{frame}{Stetigkeit in endlichdimensionalen Vektorräumen}
