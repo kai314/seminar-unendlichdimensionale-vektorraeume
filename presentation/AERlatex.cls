@@ -2078,7 +2078,7 @@
         }%
     }%
     \renewcommand\normalsize{%
-        \@setfontsize\normalsize{19.97}{24.24}%
+        \@setfontsize\normalsize{19.97}{35.13}%
         \abovedisplayskip 20.00\p@ \@plus 4.82\p@ \@minus 10.86\p@%
         \abovedisplayshortskip 0.00\p@ \@plus 5.48\p@%
         \belowdisplayshortskip 11.55\p@ \@plus 6.07\p@ \@minus 5.48\p@%
@@ -5915,7 +5915,7 @@
 % --------------
 \geometry{left=1cm,right=1cm}%    set horizontal margins (ATTENTION: vertical margins remove footer!)
 \ifdefined\optBeamerClassicFormat%
-    \AERfontSetDocumentFontSizeXXII% set font size to 22
+    \AERfontSetDocumentFontSizeXX% set font size to 20
 \else%
     \AERfontSetDocumentFontSizeXIV% set font size to 14
 \fi%
