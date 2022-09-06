@@ -40,7 +40,7 @@
 %
     \begin{frame}{Was ist eine lineare Abbildung?}%
         \begin{Definition}
-            Eine Abbildung $~f: V \rightarrow W$ zwischen $\mathbb{K}$-Vektorräumen $V$ und $W$ heißt \emph{lineare Abbildung} (Homomorphismus), wenn $\forall v, ~ w \in V, ~ \lambda \in \mathbb{K}$ gilt: \\ \pause
+            Eine Abbildung $~f: V \rightarrow W$ zwischen $\mathbb{K}$-Vektorräumen $V$ und $W$ heißt \emph{lineare Abbildung} (Homomorphismus), wenn $\forall v, ~ w \in V, ~ \lambda \in \mathbb{K}$ gilt: \pause
             \begin{enumerate}
                 [label=$(\roman*)$, leftmargin=2em]
                 \item $f(v+w) = f(v) + f(w)$ \hspace{2em} Additivität \pause
@@ -49,7 +49,7 @@
         \end{Definition}
     \end{frame}%
 %
-    \begin{frame}{Definition durch eine Matrix}
+    \begin{frame}{Darstellung als Matrix}
         Sei $f: \mathbb{K}^n \rightarrow \mathbb{K}^m$ eine lineare Abbildung und $B=(b_1, \dots , b_n)$ eine Basis von $\mathbb{K}^n$.
         \begin{flalign*}
             v = \sum_{i=1}^n \lambda_i b_i && \pause
@@ -61,12 +61,12 @@
         $\Rightarrow ~ f(v)$ ist eindeutig durch die Bilder der Basisvektoren bestimmt.
     \end{frame}
 %
-    \begin{frame}{Definition durch eine Matrix}
+    \begin{frame}{Darstellung als Matrix}
         \begin{block}{Prinzip der linearen Fortsetzung}
             Seien $V$, $W$ Vektorräume in $\mathbb{K}$ und $B=(b_1, \dots, b_n)$ eine Basis von $V$. \\
             Sei nun $A:\left\{\begin{array}{l}
                                   B \rightarrow W \\ b \mapsto A(b)
-            \end{array} \right.$ eine lineare Abbildung.                                           \\
+            \end{array} \right.$ eine lineare Abbildung.                                             \\
             Dann gibt es genau eine lineare Abbildung $~ f: ~ V \rightarrow W$ mit $~ f|_B = A$. \\
             $f$ ist die lineare Fortsetzung von $A$ auf $V$.
         \end{block}
@@ -106,6 +106,32 @@
 %    \begin{frame}{Stetigkeit in endlichdimensionalen Vektorräumen}
 %    \end{frame}
 %
+%    \begin{frame}{Darstellung als Matrix}
+%        \begin{block}{Koordinatenvektoren bezüglich einer Basis}
+%            Ist $~B=\left(b_1, \ldots, b_n\right)~$ eine geordnete Basis eines $\mathbb{K}$-Vektorraums $V$, so besitzt jedes $v \in V$ genau eine Darstellung
+%            \begin{flalign*}
+%                v = v_1 b_1 + \dots + v_n b_b
+%            \end{flalign*}
+%            mit $~v_1, \dots , v_n ~ \in ~ \mathbb{K}$. Es heißt ${ }_B v=\left(\begin{array}{c}
+%                                                                                                 v_1    \\
+%                                                                                                 \vdots \\
+%                                                                                                 v_n
+%            \end{array}\right) \in \mathbb{K}^n$ der Koordinatenvektor von $v$ bezüglich $B$.
+%        \end{block}
+%    \end{frame}
+%
+    \begin{frame}{Darstellung als Matrix}
+        \begin{block}{Darstellung linearer Abbildungen bezüglich der Standardbasen}
+            Zu jeder linearen Abbildung $f$ von $\mathbb{K}^n$ in $\mathbb{K}^m$ gibt es eine Matrix $~A \in \mathbb{K}^{m \times n}~$ mit $~f=f_A$. Diese Matrix $A$ ist gegeben als
+            \begin{flalign*}
+                A=\left(f\left(e_1\right), \ldots, f\left(e_n\right)\right) \in \mathbb{K}^{m \times n}.
+            \end{flalign*}
+            Die $i$-te Spalte von $A$ ist das Bild des $i$-ten Basisvektors der Standardbasis. \\
+            Es gilt $f(v) = Av$. \\
+            Der Koordinatenvektor von $f(v)$ ist das Produkt der Darstellungsmatrix mit dem Koordinatenvektor von $v$.
+        \end{block}
+    \end{frame}
+%
     \begin{frame}{Stetigkeit}
         \begin{Satz}
             Für eine lineare Abbildung $L$ eines normierten Vektorraums $V$ in einen normierten Vektorraum $W$ sind folgende Eigenschaften äquivalent:
@@ -139,9 +165,9 @@
             & \text{sei} \quad \left\{\|L w\|_W: x \in V, ~ \|x \|_V \leq 1\right\} \quad \text{unbeschränkt} \\ \pause
             & \Rightarrow ~ \forall n \in \mathbb{N} \quad \exists x_n \in V: ~ \left\|x_n\right\| \leq 1, \quad \left\|L x_n\right\| \geq n \\ \pause
             & y_n \coloneqq \frac{1}{n} x_n \quad \Rightarrow \quad \left\|y_n\right\|=\frac{1}{n}\left\|x_n\right\| \leq \frac{1}{n}, \quad \left\|L y_n\right\|=\frac{1}{n}\left\|L x_n\right\| \geq 1 \\ \pause
-            & \lim _{n \rightarrow \infty} y_n=0_V, ~ L 0_V=0_W \quad \text{für jede lineare Abbildung} \\ \pause
+            & \lim _{n \rightarrow \infty} y_n=0_V, \quad L 0_V=0_W \quad \text{für jede lineare Abbildung} \\ \pause
             & \text{gleichzeitig} \quad \|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N} \\ \pause
-            & \Rightarrow ~ L ~ \text{in} \quad 0_V ~ \text{unstetig}
+            & \Rightarrow ~ L ~ \text{in} ~ 0_V ~ \text{unstetig}
         \end{flalign*}
     \end{frame}
 %
@@ -184,13 +210,13 @@
             & \text{zu zeigen:} \quad \forall x \in \ell^2 \quad L x \in \ell^1 && \\ \pause
             & \text{sei} \quad a, b \in \ell^2, \quad a b \in \ell^1, \quad (a b)_n\coloneqq a_n b_n \\ \pause
             & \text{Cauchy-Schwarz:} \quad \|a b\|_1 \leq\|a\|_2~\|b\|_2 \\ \pause
-            & \text{sei} \quad x \in \ell^2 ~ \text{beliebig}, ~ \quad b=\left(b_n\right)_{n \in \mathbb{N}}, \quad b_n\coloneqq\frac{1}{n} \\ \pause
-            & \sum_{n=1}^{\infty} \frac{1}{n^2} ~ \text{konvergent} \quad \Rightarrow ~\|b\|_2=\left(\sum_{n=1}^{\infty}\left|b_n\right|^2\right)^{\frac{1}{2}}<\infty \quad \Rightarrow ~ b \in \ell^2 \\ \pause
+            & \text{sei} \quad x \in \ell^2 ~ \text{beliebig}, ~ \quad b=\left(b_n\right)_{n \in \mathbb{N}}, \quad b_n\coloneqq\frac{1}{n} \\
+            & \sum_{n=1}^{\infty} \frac{1}{n^2} ~ \text{konvergent} \quad \Rightarrow ~\|b\|_2=\left(\sum_{n=1}^{\infty}\left|b_n\right|^2\right)^{\frac{1}{2}}<\infty \quad \Rightarrow ~ b \in \ell^2 \\
             & \|x b\|_1 \leq \|x\|_2~\|b\|_2 <\infty \quad \Rightarrow ~ x b \in \ell^1 \\ \pause
             & L x=\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \cdots\right)=x b \pause
             \qquad \Rightarrow ~ L:\left\{\begin{array}{l}
                                               \ell^2 \rightarrow \ell^1 \\ x \mapsto L x\coloneqq b x
-            \end{array}\right.~  \text{definiert eine Abbildung.}
+            \end{array}\right. ~ \text{definiert eine Abbildung.}
         \end{flalign*}
     \end{frame}
 %
@@ -199,8 +225,8 @@
         \begin{flalign*}
             L(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\ \pause
             &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b \\ \pause
-            L(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a \\
-            & \hspace{20em} \forall a \in \ell^{2}, ~\lambda \in \mathbb{C} \pause
+            L(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a
+            \qquad \forall a \in \ell^{2}, ~\lambda \in \mathbb{C} \pause
         \end{flalign*}
         $\Rightarrow ~ L$  ist lineare Abbildung
     \end{frame}
@@ -239,10 +265,11 @@
     \begin{frame}{Beispiel 2}
         \noindent
         \begin{flalign*}
-            \text{Es sei} \quad A:\left\{\begin{array}{l}
+            & \text{Es sei} \quad A:\left\{\begin{array}{l}
                                              \ell^{\infty} \rightarrow \ell^{\infty}, \\
                                              \left(x_1, x_2, x_3, \ldots\right) ~ \mapsto ~ \left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \ldots\right)
-            \end{array}\right. &&
+            \end{array}\right. && \\
+            & \text{wobei} ~ \ell^{\infty} \coloneqq \{(x_n)_{n \in \mathbb{N}} \mid \sup|x_n| < \infty\}
         \end{flalign*}
     \end{frame}
 %
@@ -250,7 +277,7 @@
         \noindent
         \begin{flalign*}
             & \text{zu zeigen:} \quad \forall x \in \ell^{\infty} \quad A x \in \ell^{\infty} && \\ \pause
-            & \text{sei} \quad x \in \ell^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N} \\ \pause
+            & \text{sei} \quad x \in \ell^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N} \\
             & \Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty} \\ \pause
             & x \in \ell^{\infty} \quad \Rightarrow ~ \|A x\|_{\infty} \in \ell^{\infty} \\ \pause
             \vspace{1em}
@@ -269,8 +296,8 @@
         \begin{flalign*}
             A(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\ \pause
             &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b \\ \pause
-            A(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a \\
-            & \hspace{18em} \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C} \pause
+            A(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a
+            \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C} \pause
         \end{flalign*}
         $\Rightarrow ~ A$  ist lineare Abbildung.
     \end{frame}
@@ -291,7 +318,7 @@
         Gegenbeispiel: \\
         $y\coloneqq(1,1,1, \ldots) \in \ell^{\infty}$ \\ \pause
         angenommen, $~ \exists ~ x \in \ell^{\infty}: ~ A x=y$ \\ \pause
-        $\Rightarrow ~ \frac{x_n}{n}=y_n, x_n=n y_n=n \quad \forall n \in N$ \\ \pause
+        $\Rightarrow ~ \frac{x_n}{n}=y_n, \quad x_n=n y_n=n \quad \forall n \in N$ \\ \pause
         $\Rightarrow ~ x$ unbeschränkt, $~x \notin \ell^{\infty}$ \\ \pause
         $\Rightarrow ~ A$ ist nicht surjektiv. \\ \pause
         $\Rightarrow ~ A$ ist injektiv, aber nicht surjektiv.
@@ -301,7 +328,7 @@
         \noindent
         \begin{flalign*}
             & A ~ \text{stetig} ~\Leftrightarrow M\coloneqq\left\{\|A x\|_{\infty}: x \in \ell^{\infty},\|x\|_{\infty} \leq 1\right\}~ \text{beschränkt} && \\ \pause
-            & \|A x\|_{\infty}=\|x\|_{\infty} ~ \text{siehe oben} ~ \Rightarrow\|A x\|_{\infty} \leq 1 \quad \forall x \in \ell^{\infty}:\left\|x\right\|_{\infty} \leq 1 \\ \pause
+            & \|A x\|_{\infty} \leq \|x\|_{\infty} ~ \text{siehe oben} ~ \Rightarrow\|A x\|_{\infty} \leq 1 \quad \forall x \in \ell^{\infty}:\left\|x\right\|_{\infty} \leq 1 \\ \pause
             & \Rightarrow M ~ \text{beschränkt,} ~ A ~ \text{stetig.}
         \end{flalign*}
     \end{frame}
@@ -309,19 +336,18 @@
     \begin{frame}{Beispiel 2: Stetigkeit der Umkehrabbildung}
         \noindent
         \begin{flalign*}
+            & x^{(k)}\coloneqq A^{-1} y^{(k)} \quad x_n^{(k)}=\left\{\begin{array}{l}
+                                                                         k, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
+            \end{array}\right. && \\ \pause
             & \text{sei} \quad y^{(k)} \in \ell^{\infty}, \quad k \in \mathbb{N} \quad y_n^{(k)}\coloneqq \begin{cases}
                                                                                                               1, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
                                                                                                               &
-            \end{cases} && \\ \pause
+            \end{cases} \\ \pause
             \vspace{0.5em}
             & \Rightarrow\left\|y^{(k)}\right\|=1 \quad \forall k \in \mathbb{N} \\ \pause
             \vspace{0.5em}
-            & x^{(k)}\coloneqq A^{-1} y^{(k)} \quad x_n^{(k)}=\left\{\begin{array}{l}
-                                                                         k, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
-            \end{array}\right. \\ \pause
-            \vspace{0.5em}
             & \Rightarrow\left\|A^{-1} y^{(k)}\right\|_{\infty}=\left\|x^{(k)}\right\|_{\infty}=k \\ \pause
-            & \Rightarrow\left\{A^{-1} y\|: y \in X,\| y \|_{\infty} \leq 1\right\}, ~ A ~ \text{ist unbeschränkt} \\ \pause
+            & \Rightarrow\left\{\|A^{-1} y\|_{\infty}: y \in X,\| y \|_{\infty} \leq 1\right\} ~ \text{ist unbeschränkt} \\ \pause
             & \Rightarrow A^{-1} ~ \text{ist \emph{nicht} stetig.}
         \end{flalign*}
     \end{frame}
