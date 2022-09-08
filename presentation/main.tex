@@ -52,12 +52,12 @@
     \begin{frame}{Darstellung als Matrix}
         Sei $f: \mathbb{K}^n \rightarrow \mathbb{K}^m$ eine lineare Abbildung und $B=(b_1, \dots , b_n)$ eine Basis von $\mathbb{K}^n$.
         \begin{flalign*}
-            v = \sum_{i=1}^n \lambda_i b_i && \pause
-        \end{flalign*}
+            v = \sum_{i=1}^n \lambda_i b_i &&
+        \end{flalign*} \pause
         Wegen Additivität und Homogenität:
         \begin{flalign*}
             f(v) = f(\lambda_1 b_1 + \dots + \lambda_n b_n) = \lambda_1 ~ f(b_1) + \dots + \lambda_n ~ f(b_n) &&
-        \end{flalign*}
+        \end{flalign*} \pause
         $\Rightarrow ~ f(v)$ ist eindeutig durch die Bilder der Basisvektoren bestimmt.
     \end{frame}
 %
@@ -80,14 +80,15 @@
         \end{flalign*}
         \vspace{0.5em}
         \textbf{Linearität:}
+        \vspace{-0.5em}
         \begin{flalign*}
-            \text{sei} ~v=\sum_{i=1}^n \lambda_i b_i, \quad w=\sum_{i=1}^n \mu_i c_i, \quad \lambda_i, \mu_i \in \mathbb{K} && \pause
-        \end{flalign*}
+            \text{sei} ~v=\sum_{i=1}^n \lambda_i b_i, \quad w=\sum_{i=1}^n \mu_i b_i, \quad \lambda_i, \mu_i \in \mathbb{K} &&
+        \end{flalign*} \pause
         \begin{flalign*}
-            f(v+w) &=f\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right)=A\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i c_i\right) && \\ \pause
-            &=A\left(\sum_{i=1}^n \lambda_i b_i\right)+A\left(\sum_{i=1}^n \mu_i c_i\right)=A(v)+A(w) = f(v)+f(w) \\ \pause \pause
-            f\left(\lambda v\right) &=f\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=A\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=\lambda A\left(\sum_{i=1}^n \lambda_i b_i\right)=\lambda A(v)=\lambda f(v) \pause
-        \end{flalign*}
+            f(v+w) &=f\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i b_i\right)=A\left(\sum_{i=1}^n \lambda_i b_i+\sum_{i=1}^n \mu_i b_i\right) && \\
+            &=A\left(\sum_{i=1}^n \lambda_i b_i\right)+A\left(\sum_{i=1}^n \mu_i b_i\right)=A(v)+A(w) = f(v)+f(w) \\
+            f\left(\lambda v\right) &=f\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=A\left(\lambda \sum_{i=1}^n \lambda_i b_i\right)=\lambda A\left(\sum_{i=1}^n \lambda_i b_i\right)=\lambda A(v)=\lambda f(v)
+        \end{flalign*} \pause
         $\Rightarrow ~ f ~$ ist linear
     \end{frame}
 %
@@ -95,10 +96,10 @@
         \textbf{Eindeutigkeit:} \\
         Für zwei lineare Fortsetzungen $f$, $g$ von $A$ gilt:
         \begin{flalign*}
-            f(v) &=f\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) && \\ \pause
-            &=\lambda_1 A\left(b_1\right)+\cdots+\lambda_n A\left(b_n\right) && \\ \pause
-            &=g\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) && \\ \pause
-            &=g(v) && \\ \pause
+            f(v) &=f\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) && \\
+            &=\lambda_1 A\left(b_1\right)+\cdots+\lambda_n A\left(b_n\right) && \\
+            &=g\left(\lambda_1 b_1+\cdots+\lambda_n b_n\right) && \\
+            &=g(v) && \\
             \Rightarrow ~ f &= g &&
         \end{flalign*}
     \end{frame}
@@ -147,9 +148,9 @@
     \begin{frame}{Beweis}
         \noindent
         \begin{flalign*}
-            & (i) \Rightarrow (ii): && \\ \pause
-            & \text{trivial} \pause
-        \end{flalign*}
+            & (i) \Rightarrow (ii): && \\
+            & \text{trivial}
+        \end{flalign*} \pause
         Erinnerung: \\
         Eine Funktion $~f: D \rightarrow \mathbb{C}~$ heißt \emph{gleichmäßig stetig} auf $D$, wenn
         \begin{flalign*}
@@ -161,12 +162,12 @@
     \begin{frame}{Beweis}
         \noindent
         \begin{flalign*}
-            & (ii) \Rightarrow (iii): && \\ \pause
-            & \text{sei} \quad \left\{\|L w\|_W: x \in V, ~ \|x \|_V \leq 1\right\} \quad \text{unbeschränkt} \\ \pause
-            & \Rightarrow ~ \forall n \in \mathbb{N} \quad \exists x_n \in V: ~ \left\|x_n\right\| \leq 1, \quad \left\|L x_n\right\| \geq n \\ \pause
-            & y_n \coloneqq \frac{1}{n} x_n \quad \Rightarrow \quad \left\|y_n\right\|=\frac{1}{n}\left\|x_n\right\| \leq \frac{1}{n}, \quad \left\|L y_n\right\|=\frac{1}{n}\left\|L x_n\right\| \geq 1 \\ \pause
-            & \lim _{n \rightarrow \infty} y_n=0_V, \quad L 0_V=0_W \quad \text{für jede lineare Abbildung} \\ \pause
-            & \text{gleichzeitig} \quad \|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N} \\ \pause
+            & (ii) \Rightarrow (iii): && \\
+            & \text{sei} \quad \left\{\|L w\|_W: x \in V, ~ \|x \|_V \leq 1\right\} \quad \text{unbeschränkt} \\
+            & \Rightarrow ~ \forall n \in \mathbb{N} \quad \exists x_n \in V: ~ \left\|x_n\right\| \leq 1, \quad \left\|L x_n\right\| \geq n \\
+            & y_n \coloneqq \frac{1}{n} x_n \quad \Rightarrow \quad \left\|y_n\right\|=\frac{1}{n}\left\|x_n\right\| \leq \frac{1}{n}, \quad \left\|L y_n\right\|=\frac{1}{n}\left\|L x_n\right\| \geq 1 \\
+            & \lim _{n \rightarrow \infty} y_n=0_V, \quad L 0_V=0_W \quad \text{für jede lineare Abbildung} \\
+            & \text{gleichzeitig} \quad \|Ly_n\| \geq 1 \quad \forall n \in \mathbb{N} \\
             & \Rightarrow ~ L ~ \text{in} ~ 0_V ~ \text{unstetig}
         \end{flalign*}
     \end{frame}
@@ -174,12 +175,12 @@
     \begin{frame}{Beweis}
         \noindent
         \begin{flalign*}
-            & (iii) \Rightarrow (i): && \\ \pause
-            & M\coloneqq\sup \{\|L x\|: x \in V,~\|x\| \leq 1\}<\infty \\ \pause
-            & \text{dafür zu zeigen:} \quad \|L x-L y\| \leq M\|x-y\| \quad \forall x, ~ y \text{ in } V \\ \pause
-            & z\coloneqq\frac{x-y}{\|x-y\|} \qquad x \neq y \quad \text{(für } x=y \text{ trivial)} \\ \pause
-            & \Rightarrow ~\|z\|=1 \quad \Rightarrow ~\|L z\| \leq M \\ \pause
-            & \Rightarrow ~\left\|\frac{L(x-y)}{\|x-y\|}\right\| \leq M \quad \Rightarrow ~\|L(x-y)\| \leq M\|x-y\| \\ \pause
+            & (iii) \Rightarrow (i): && \\
+            & M\coloneqq\sup \{\|L x\|: x \in V,~\|x\| \leq 1\}<\infty \\
+            & \text{dafür zu zeigen:} \quad \|L x-L y\| \leq M\|x-y\| \quad \forall x, ~ y \text{ in } V \\
+            & z\coloneqq\frac{x-y}{\|x-y\|} \qquad x \neq y \quad \text{(für } x=y \text{ trivial)} \\
+            & \Rightarrow ~\|z\|=1 \quad \Rightarrow ~\|L z\| \leq M \\
+            & \Rightarrow ~\left\|\frac{L(x-y)}{\|x-y\|}\right\| \leq M \quad \Rightarrow ~\|L(x-y)\| \leq M\|x-y\| \\
             & \Rightarrow ~ \text{gleichmäßig stetig}
         \end{flalign*}
     \end{frame}
@@ -207,13 +208,13 @@
     \begin{frame}{Beispiel 1: Wohldefiniertheit}
         \noindent
         \begin{flalign*}
-            & \text{zu zeigen:} \quad \forall x \in \ell^2 \quad L x \in \ell^1 && \\ \pause
-            & \text{sei} \quad a, b \in \ell^2, \quad a b \in \ell^1, \quad (a b)_n\coloneqq a_n b_n \\ \pause
-            & \text{Cauchy-Schwarz:} \quad \|a b\|_1 \leq\|a\|_2~\|b\|_2 \\ \pause
+            & \text{zu zeigen:} \quad \forall x \in \ell^2 \quad L x \in \ell^1 && \\
+            & \text{sei} \quad a, b \in \ell^2, \quad a b \in \ell^1, \quad (a b)_n\coloneqq a_n b_n \\
+            & \text{Hölder-Ungleichung:} \quad \|a b\|_1 \leq\|a\|_2~\|b\|_2 \\
             & \text{sei} \quad x \in \ell^2 ~ \text{beliebig}, ~ \quad b=\left(b_n\right)_{n \in \mathbb{N}}, \quad b_n\coloneqq\frac{1}{n} \\
             & \sum_{n=1}^{\infty} \frac{1}{n^2} ~ \text{konvergent} \quad \Rightarrow ~\|b\|_2=\left(\sum_{n=1}^{\infty}\left|b_n\right|^2\right)^{\frac{1}{2}}<\infty \quad \Rightarrow ~ b \in \ell^2 \\
-            & \|x b\|_1 \leq \|x\|_2~\|b\|_2 <\infty \quad \Rightarrow ~ x b \in \ell^1 \\ \pause
-            & L x=\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \cdots\right)=x b \pause
+            & \|x b\|_1 \leq \|x\|_2~\|b\|_2 <\infty \quad \Rightarrow ~ x b \in \ell^1 \\
+            & L x=\left(\frac{x_1}{1}, \frac{x_2}{2}, \frac{x_3}{3}, \cdots\right)=x b
             \qquad \Rightarrow ~ L:\left\{\begin{array}{l}
                                               \ell^2 \rightarrow \ell^1 \\ x \mapsto L x\coloneqq b x
             \end{array}\right. ~ \text{definiert eine Abbildung.}
@@ -223,11 +224,11 @@
     \begin{frame}{Beispiel 1: Linearität}
         für $a, b \in \ell^2$ gilt: \hfill
         \begin{flalign*}
-            L(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\ \pause
-            &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b \\ \pause
+            L(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\
+            &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=L a+L b \\
             L(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ L a
-            \qquad \forall a \in \ell^{2}, ~\lambda \in \mathbb{C} \pause
-        \end{flalign*}
+            \qquad \forall a \in \ell^{2}, ~\lambda \in \mathbb{C}
+        \end{flalign*} \pause
         $\Rightarrow ~ L$  ist lineare Abbildung
     \end{frame}
 %
@@ -276,10 +277,10 @@
     \begin{frame}{Beispiel 2: Wohldefiniertheit}
         \noindent
         \begin{flalign*}
-            & \text{zu zeigen:} \quad \forall x \in \ell^{\infty} \quad A x \in \ell^{\infty} && \\ \pause
+            & \text{zu zeigen:} \quad \forall x \in \ell^{\infty} \quad A x \in \ell^{\infty} && \\
             & \text{sei} \quad x \in \ell^{\infty} \Rightarrow\left|\frac{x_n}{n}\right| \leq\left|x_n\right| \quad \forall n \in \mathbb{N} \\
-            & \Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty} \\ \pause
-            & x \in \ell^{\infty} \quad \Rightarrow ~ \|A x\|_{\infty} \in \ell^{\infty} \\ \pause
+            & \Rightarrow ~ \|A x\|_{\infty}=\sup _{n \in N}\left|\frac{x_n}{n}\right| \leq \sup \left|x_n\right|=\|x\|_{\infty} \\
+            & x \in \ell^{\infty} \quad \Rightarrow ~ \|A x\|_{\infty} \in \ell^{\infty} \\
             \vspace{1em}
             & \Rightarrow ~ A:\left\{\begin{array}{l}
                                          \ell^{\infty} \rightarrow \ell^{\infty} \\ x \mapsto A x
@@ -294,22 +295,22 @@
         \end{flalign*}
         \noindent
         \begin{flalign*}
-            A(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\ \pause
-            &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b \\ \pause
+            A(a+b)&=\left(\frac{a_1+b_1}{1}, \frac{a_2+b_2}{2}, \frac{a_3+b_3}{3}, \ldots\right) && \\
+            &=\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)+\left(\frac{b_1}{1}, \frac{b_2}{2}, \frac{b_3}{3}, \ldots\right)=A a+A b \\
             A(\lambda a)&=\left(\frac{\lambda a_1}{1}, \frac{\lambda a_2}{2}, \frac{\lambda a_3}{3}, \ldots\right)=\lambda\left(\frac{a_1}{1}, \frac{a_2}{2}, \frac{a_3}{3}, \ldots\right)=\lambda ~ A a
-            \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C} \pause
-        \end{flalign*}
+            \quad \forall a \in \ell^{\infty}, ~\lambda \in \mathbb{C}
+        \end{flalign*} \pause
         $\Rightarrow ~ A$  ist lineare Abbildung.
     \end{frame}
 %
     \begin{frame}{Beispiel 2: Injektivität}
         \noindent
         \begin{flalign*}
-            & \text{zu zeigen:} \quad A x=A y ~ \Rightarrow ~ x=y && \\ \pause
-            & A x=A y ~ \Leftrightarrow ~ A(x-y)=0~ \quad \text{wegen Additivität, Homogenität} \\ \pause
-            & \text{zu zeigen (vereinfacht):} \quad A x=0 ~ \Rightarrow ~ x=0 \\ \pause
-            & \text{sei} ~x \in \ell^{\infty}, \quad A x=0 \\ \pause
-            & \Rightarrow ~ \frac{x_n}{n}=0 \quad \forall n \in N \quad \Rightarrow ~ x_n=0 \quad \forall n \in N \quad \Rightarrow ~ x=0 \\ \pause
+            & \text{zu zeigen:} \quad A x=A y ~ \Rightarrow ~ x=y && \\
+            & A x=A y ~ \Leftrightarrow ~ A(x-y)=0~ \quad \text{wegen Additivität, Homogenität} \\
+            & \text{zu zeigen (vereinfacht):} \quad A x=0 ~ \Rightarrow ~ x=0 \\
+            & \text{sei} ~x \in \ell^{\infty}, \quad A x=0 \\
+            & \Rightarrow ~ \frac{x_n}{n}=0 \quad \forall n \in N \quad \Rightarrow ~ x_n=0 \quad \forall n \in N \quad \Rightarrow ~ x=0 \\
             & \Rightarrow ~ A ~ \text{ist injektiv.}
         \end{flalign*}
     \end{frame}
@@ -327,8 +328,8 @@
     \begin{frame}{Beispiel 2: Stetigkeit}
         \noindent
         \begin{flalign*}
-            & A ~ \text{stetig} ~\Leftrightarrow M\coloneqq\left\{\|A x\|_{\infty}: x \in \ell^{\infty},\|x\|_{\infty} \leq 1\right\}~ \text{beschränkt} && \\ \pause
-            & \|A x\|_{\infty} \leq \|x\|_{\infty} ~ \text{siehe oben} ~ \Rightarrow\|A x\|_{\infty} \leq 1 \quad \forall x \in \ell^{\infty}:\left\|x\right\|_{\infty} \leq 1 \\ \pause
+            & A ~ \text{stetig} ~\Leftrightarrow M\coloneqq\left\{\|A x\|_{\infty}: x \in \ell^{\infty},\|x\|_{\infty} \leq 1\right\}~ \text{beschränkt} && \\
+            & \|A x\|_{\infty} \leq \|x\|_{\infty} ~ \text{siehe oben} ~ \Rightarrow\|A x\|_{\infty} \leq 1 \quad \forall x \in \ell^{\infty}:\left\|x\right\|_{\infty} \leq 1 \\
             & \Rightarrow M ~ \text{beschränkt,} ~ A ~ \text{stetig.}
         \end{flalign*}
     \end{frame}
@@ -336,18 +337,18 @@
     \begin{frame}{Beispiel 2: Stetigkeit der Umkehrabbildung}
         \noindent
         \begin{flalign*}
-            & x^{(k)}\coloneqq A^{-1} y^{(k)} \quad x_n^{(k)}=\left\{\begin{array}{l}
-                                                                         k, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
-            \end{array}\right. && \\ \pause
             & \text{sei} \quad y^{(k)} \in \ell^{\infty}, \quad k \in \mathbb{N} \quad y_n^{(k)}\coloneqq \begin{cases}
                                                                                                               1, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
                                                                                                               &
-            \end{cases} \\ \pause
+            \end{cases} && \\
             \vspace{0.5em}
-            & \Rightarrow\left\|y^{(k)}\right\|=1 \quad \forall k \in \mathbb{N} \\ \pause
+            & \Rightarrow\left\|y^{(k)}\right\|=1 \quad \forall k \in \mathbb{N} \\
             \vspace{0.5em}
-            & \Rightarrow\left\|A^{-1} y^{(k)}\right\|_{\infty}=\left\|x^{(k)}\right\|_{\infty}=k \\ \pause
-            & \Rightarrow\left\{\|A^{-1} y\|_{\infty}: y \in X,\| y \|_{\infty} \leq 1\right\} ~ \text{ist unbeschränkt} \\ \pause
+            & x^{(k)}\coloneqq A^{-1} y^{(k)} \quad x_n^{(k)}=\left\{\begin{array}{l}
+                                                                         k, \quad \text { falls } n=k \\ 0~ \quad \text { sonst. }
+            \end{array}\right. \\
+            & \Rightarrow\left\|A^{-1} y^{(k)}\right\|_{\infty}=\left\|x^{(k)}\right\|_{\infty}=k \\
+            & \Rightarrow\left\{\|A^{-1} y\|_{\infty}: y \in X,\| y \|_{\infty} \leq 1\right\} ~ \text{ist unbeschränkt} \\
             & \Rightarrow A^{-1} ~ \text{ist \emph{nicht} stetig.}
         \end{flalign*}
     \end{frame}
@@ -398,7 +399,7 @@
                                         x_2 \\
                                         x_3 \\
                                         \vdots
-            \end{array}\right) \pause =\left(\begin{array}{c}
+            \end{array}\right) =\left(\begin{array}{c}
                                                  \sum_{n=1}^{\infty} a_{1 n} x_n \\
                                                  \sum_{n=1}^{\infty} a_{2 n} x_n \\
                                                  \sum_{n=1}^{\infty} a_{3 n} x_n \\
